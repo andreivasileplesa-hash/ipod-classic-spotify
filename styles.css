@@ -47,3 +47,5 @@ html,body{width:100%;height:100%;min-height:100%;margin:0;overflow:hidden}
 .spotify-home~.view{background:#121212}
 .wheel-selected{outline:2px solid #1ed760!important;outline-offset:-2px;border-radius:5px!important}
 .wheel{touch-action:none;user-select:none;-webkit-user-select:none}
+.wheel-inner>.wheel-menu{left:50%;top:13px;bottom:auto;width:auto;height:auto;padding:8px 11px;border:0;background:transparent;transform:translateX(-50%);font-size:9px;line-height:1;cursor:pointer}
+.wheel-inner>.wheel-center{bottom:auto}
