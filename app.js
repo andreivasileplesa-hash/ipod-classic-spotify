@@ -116,7 +116,7 @@ wheelSurface.addEventListener('pointermove',event=>{
   while(wheelGesture.travel<=-.38){rotateSpotifyWheel(-1);wheelGesture.travel+=.38;}
   event.preventDefault();
 });
-const clearWheelGesture=event=>{if(wheelGesture?.pointerId===event.pointerId)wheelGesture=null;};
+const clearWheelGesture=event=>{if(wheelGesture?.pointerId===event.pointerId){const moved=Math.abs(wheelGesture.travel);wheelGesture=null;if(moved<.12)moveSpotifyFocus(1);}};
 wheelSurface.addEventListener('pointerup',clearWheelGesture);
 wheelSurface.addEventListener('pointercancel',clearWheelGesture);
 document.addEventListener('pointerdown',event=>{const item=event.target.closest('#spotifyAppView .sp-tile,#spotifyAppView .sp-playlist,#connectAccount,#spotifyClientId,#saveClientId,#spSearch,#spLibrary');if(!item)return;const index=spotifyFocusItems().indexOf(item);if(index>=0){spotifyFocusIndex=index;paintSpotifyFocus();}});
