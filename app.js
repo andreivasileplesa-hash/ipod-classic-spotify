@@ -122,3 +122,7 @@ const clearWheelGesture=event=>{if(wheelGesture?.pointerId===event.pointerId){co
 wheelSurface.addEventListener('pointerup',clearWheelGesture);
 wheelSurface.addEventListener('pointercancel',clearWheelGesture);
 document.addEventListener('pointerdown',event=>{const item=event.target.closest('#spotifyAppView .sp-tile,#spotifyAppView .sp-playlist,#connectAccount,#spotifyClientId,#saveClientId,#spSearch,#spLibrary');if(!item)return;const index=spotifyFocusItems().indexOf(item);if(index>=0){spotifyFocusIndex=index;paintSpotifyFocus();}});
+
+if('serviceWorker' in navigator&&location.protocol==='https:'){
+  window.addEventListener('load',()=>navigator.serviceWorker.register('./sw.js').catch(()=>{}));
+}

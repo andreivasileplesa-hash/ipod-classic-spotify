@@ -22,3 +22,7 @@ Standalone mobile-first iPod player project. It lives in its own repository, sep
 3. Copy the `onrender.com` address Render assigns to the site.
 4. Add that exact address with a trailing `/` to the Spotify app's **Redirect URIs**, then save.
 5. Open the Render address and connect Spotify again.
+
+## Install on iPhone or iPad
+
+Open the deployed Render site in Safari, tap **Share → Add to Home Screen**, enable **Open as Web App**, and tap **Add**. This creates an iPod icon and opens the site without Safari's browser chrome. Spotify still needs an internet connection.
