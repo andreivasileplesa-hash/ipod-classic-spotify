@@ -6,7 +6,7 @@ Standalone mobile-first iPod player project. It lives in its own repository, sep
 
 - When playback is paused, swipe in a circle around the wheel to move through Spotify. Press the center button to open the highlighted item.
 - While music is playing, turn the wheel clockwise to raise the volume and counterclockwise to lower it. Press the center button to pause/resume.
-- Track skipping is available in Spotify's embedded player. Wheel volume control requires Spotify Premium and an active Spotify device.
+- Track skipping is available in Spotify's embedded player. Wheel volume control requires Spotify Premium, renewed playback permissions, and a Spotify device that allows remote volume. iOS may reserve volume control to the phone's physical buttons.
 
 ## Publish with GitHub Pages
 
