@@ -90,8 +90,7 @@ $('#connectAccount').onclick=()=>{const connected=Boolean(localStorage.getItem('
 $('#nowPlayingArt').onclick=()=>{const items=spotifyFocusItems(),item=items[spotifyFocusIndex%Math.max(items.length,1)];if(item?.dataset.uri)playSpotifyEmbed(item.dataset.uri);else $('#connectAccount').click();};
 $('#saveClientId').onclick=startSpotifyLogin;
 $('#spRefresh').onclick=loadSpotifyAccount;
-$('#spLibrary').onclick=()=>$('#spLibraryTitle').scrollIntoView({behavior:'smooth',block:'start'});
-$('#spSearch').onclick=()=>showView('spotify');
+// Los controles de biblioteca ya no se muestran en la pantalla minimalista.
 document.querySelectorAll('.sp-tile').forEach(button=>button.onclick=()=>{const playlist=document.querySelectorAll('.sp-playlist')[Number(button.dataset.index)%Math.max(1,document.querySelectorAll('.sp-playlist').length)];if(playlist?.dataset.uri)playSpotifyEmbed(playlist.dataset.uri);else if(!sessionStorage.getItem('orbit_spotify_access')){$('#spotifySetup').hidden=false;$('#spotifySetup').scrollIntoView({behavior:'smooth',block:'center'});}});
 document.querySelectorAll('.sp-playlist[data-demo]').forEach((button,index)=>{button.dataset.uri=`spotify:playlist:${['37i9dQZF1DXcBWIGoYBM5M','37i9dQZF1DX4JAvHpjipBk','37i9dQZF1DXcF6B6QPhFDv'][index]}`;button.onclick=()=>showSelectedAlbum(button);});
 exchangeSpotifyCode();
