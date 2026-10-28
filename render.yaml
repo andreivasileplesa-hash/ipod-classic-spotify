@@ -1,0 +1,7 @@
+services:
+  - type: web
+    runtime: static
+    name: ipod-classic-spotify
+    branch: main
+    buildCommand: echo "No build step required"
+    staticPublishPath: .
