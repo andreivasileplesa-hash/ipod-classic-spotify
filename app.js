@@ -91,3 +91,27 @@ document.querySelectorAll('.sp-tile').forEach(button=>button.onclick=()=>{const 
 document.querySelectorAll('.sp-playlist[data-demo]').forEach((button,index)=>button.onclick=()=>playSpotifyEmbed(`spotify:playlist:${['37i9dQZF1DXcBWIGoYBM5M','37i9dQZF1DX4JAvHpjipBk','37i9dQZF1DXcF6B6QPhFDv'][index]}`));
 exchangeSpotifyCode();
 if(sessionStorage.getItem('orbit_spotify_access')||localStorage.getItem('orbit_spotify_refresh'))loadSpotifyAccount();
+
+// Girar/deslizar el aro también recorre las opciones de Spotify.
+const wheelSurface=$('.wheel');
+let wheelGesture=null;
+function wheelTouchAngle(event){const rect=wheelSurface.getBoundingClientRect();return Math.atan2(event.clientY-(rect.top+rect.height/2),event.clientX-(rect.left+rect.width/2));}
+function normalizeAngle(angle){while(angle>Math.PI)angle-=Math.PI*2;while(angle<-Math.PI)angle+=Math.PI*2;return angle;}
+wheelSurface.addEventListener('pointerdown',event=>{
+  if(activeView!=='spotifyApp'||event.target.closest('button,#menuBtn'))return;
+  const rect=wheelSurface.getBoundingClientRect(),dx=event.clientX-(rect.left+rect.width/2),dy=event.clientY-(rect.top+rect.height/2);
+  if(Math.hypot(dx,dy)<rect.width*.24)return;
+  wheelGesture={pointerId:event.pointerId,angle:wheelTouchAngle(event),travel:0};
+  wheelSurface.setPointerCapture(event.pointerId);event.preventDefault();
+});
+wheelSurface.addEventListener('pointermove',event=>{
+  if(!wheelGesture||wheelGesture.pointerId!==event.pointerId)return;
+  const angle=wheelTouchAngle(event);wheelGesture.travel+=normalizeAngle(angle-wheelGesture.angle);wheelGesture.angle=angle;
+  while(wheelGesture.travel>=.38){moveSpotifyFocus(1);wheelGesture.travel-=.38;}
+  while(wheelGesture.travel<=-.38){moveSpotifyFocus(-1);wheelGesture.travel+=.38;}
+  event.preventDefault();
+});
+const clearWheelGesture=event=>{if(wheelGesture?.pointerId===event.pointerId)wheelGesture=null;};
+wheelSurface.addEventListener('pointerup',clearWheelGesture);
+wheelSurface.addEventListener('pointercancel',clearWheelGesture);
+document.addEventListener('pointerdown',event=>{const item=event.target.closest('#spotifyAppView .sp-tile,#spotifyAppView .sp-playlist,#connectAccount,#spotifyClientId,#saveClientId,#spSearch,#spLibrary');if(!item)return;const index=spotifyFocusItems().indexOf(item);if(index>=0){spotifyFocusIndex=index;paintSpotifyFocus();}});

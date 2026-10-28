@@ -46,3 +46,4 @@ html,body{width:100%;height:100%;min-height:100%;margin:0;overflow:hidden}
 .sp-nav{height:42px;position:absolute;bottom:0;left:0;right:0;background:#090909;border-top:1px solid #292929;display:flex;align-items:center;justify-content:space-around}.sp-nav button{border:0;background:transparent;color:#a7a7a7;display:flex;flex-direction:column;align-items:center;gap:2px;font-size:7px}.sp-nav b{font-size:14px;line-height:14px}.sp-nav button.active{color:#fff}.sp-nav button.active b{color:#1ed760}
 .spotify-home~.view{background:#121212}
 .wheel-selected{outline:2px solid #1ed760!important;outline-offset:-2px;border-radius:5px!important}
+.wheel{touch-action:none;user-select:none;-webkit-user-select:none}
