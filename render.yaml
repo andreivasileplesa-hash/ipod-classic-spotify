@@ -3,5 +3,5 @@ services:
     runtime: static
     name: ipod-classic-spotify
     branch: main
-    buildCommand: echo "No build step required"
+    buildCommand: "true"
     staticPublishPath: .
