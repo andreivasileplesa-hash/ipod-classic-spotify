@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=14" />
+  <link rel="stylesheet" href="styles.css?v=15" />
 </head>
 <body>
   <main class="stage">
@@ -28,7 +28,9 @@
               <button id="connectAccount" class="now-playing-account" aria-label="Conectar o desconectar Spotify">◉</button>
               <div class="sp-data" id="spData"><div class="sp-greeting" id="spotifyGreeting">Spotify</div><div class="sp-quick" id="spotifyQuick"><button class="sp-tile" data-index="0">Favoritas</button><button class="sp-tile" data-index="1">Para ti</button><button class="sp-tile" data-index="2">Descubrir</button><button class="sp-tile" data-index="3">Mix diario</button></div>
               <h3 id="spLibraryTitle">Tus discos</h3><button id="spRefresh">Actualizar</button><div class="sp-playlists" id="spPlaylists"><button class="sp-playlist" data-demo="0"><span class="sp-cover cover-one">✦</span><span><b>Mis canciones favoritas</b><small>Playlist · Spotify</small></span></button><button class="sp-playlist" data-demo="1"><span class="sp-cover cover-two">◒</span><span><b>Indie para la tarde</b><small>Playlist · Para escuchar</small></span></button></div>
-              <div class="sp-connect-panel" id="spotifySetup"><p class="sp-connect-title">Conecta tu cuenta</p><p>Inicia sesión con Spotify para cargar tus playlists.</p><label for="spotifyClientId">CLIENT ID DE LA APP</label><input id="spotifyClientId" placeholder="Pega aquí el Client ID" autocomplete="off"><button id="saveClientId">GUARDAR Y CONECTAR CON SPOTIFY <span>↗</span></button><small>Dirección de retorno: <b id="spotifyRedirectUri"></b> · <a href="https://developer.spotify.com/dashboard" target="_blank" rel="noreferrer">Spotify Developer Dashboard ↗</a></small></div><div id="spotifyPlayback"></div></div>
+              </div>
+              <div class="sp-connect-panel" id="spotifySetup" hidden><p class="sp-connect-title">Conecta tu cuenta</p><p>Inicia sesión con Spotify para cargar tus playlists.</p><label for="spotifyClientId">CLIENT ID DE LA APP</label><input id="spotifyClientId" placeholder="Pega aquí el Client ID" autocomplete="off"><button id="saveClientId">GUARDAR Y CONECTAR CON SPOTIFY <span>↗</span></button><small>Dirección de retorno: <b id="spotifyRedirectUri"></b> · <a href="https://developer.spotify.com/dashboard" target="_blank" rel="noreferrer">Spotify Developer Dashboard ↗</a></small></div>
+              <div id="spotifyPlayback"></div>
             </div>
             <div class="view menu-view" id="menuView"><p class="menu-date" id="menuDate">MIÉRCOLES · 28 OCT</p><h2>Tu música.</h2><div class="menu-list"><button class="menu-item selected" data-view="player"><span class="menu-icon">♫</span><span>Escuchando ahora</span><span class="menu-arrow">›</span></button><button class="menu-item" data-view="library"><span class="menu-icon">▤</span><span>Mi biblioteca</span><span class="menu-arrow">›</span></button><button class="menu-item" data-view="spotify"><span class="menu-icon spotify-mark">◉</span><span>Conectar Spotify</span><span class="menu-arrow">›</span></button><button class="menu-item" data-view="about"><span class="menu-icon">✳</span><span>Acerca de Orbit</span><span class="menu-arrow">›</span></button></div><div class="menu-footer">BUENAS COSAS SUENAN MEJOR<br>CUANDO LAS ESCUCHAS.</div></div>
             <div class="view library-view" id="libraryView"><p class="menu-date">TU COLECCIÓN</p><h2>Mi biblioteca.</h2><div class="library-list"><button class="library-item" data-track="0"><span class="mini-cover cover-a">01</span><span><b>Midnight City</b><small>M83 · 2011</small></span><span class="row-arrow">↗</span></button><button class="library-item" data-track="1"><span class="mini-cover cover-b">02</span><span><b>Dreams</b><small>Fleetwood Mac · 1977</small></span><span class="row-arrow">↗</span></button><button class="library-item" data-track="2"><span class="mini-cover cover-c">03</span><span><b>Borderline</b><small>Tame Impala · 2020</small></span><span class="row-arrow">↗</span></button><button class="library-item" data-track="3"><span class="mini-cover cover-d">04</span><span><b>La femme d'argent</b><small>Air · 1998</small></span><span class="row-arrow">↗</span></button></div><div class="library-note"><span>✳</span><p>Conecta Spotify para encontrar tus playlists favoritas.</p></div></div>
@@ -40,5 +42,5 @@
       </section>
     </section>
     <footer class="site-footer"><span>© ORBIT PLAYER 2026</span><span>MADE FOR THE MOMENT, NOT THE FEED</span><a href="#" id="footerSpotify">SPOTIFY INTEGRATION ↗</a></footer>
-  </main><script src="app.js?v=17"></script>
+  </main><script src="app.js?v=18"></script>
 </body></html>
